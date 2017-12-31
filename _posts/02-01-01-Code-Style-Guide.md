@@ -2,59 +2,43 @@
 anchor: code_style_guide
 ---
 
-# Code Style Guide {#code_style_guide_title}
+# কোড স্টাইল গাইড {#code_style_guide_title}
 
-The PHP community is large and diverse, composed of innumerable libraries, frameworks, and components. It is common for
-PHP developers to choose several of these and combine them into a single project. It is important that PHP code adhere
-(as close as possible) to a common code style to make it easy for developers to mix and match various libraries for
-their projects.
+পিএইচপি কমিউনিটি বিশাল ও বৈচিত্র্যময়, যাতে আছে অসংখ্য লাইব্রেরি, ফ্রেমওয়ার্ক এবং অন্যান্য কম্পোনেন্ট। পিএইচপি ডেভেলপাররা সাধারণত এইগুলোর মধ্যে কয়েকটি নির্বাচন করেন এবং একই প্রজেক্টে তাদেরকে সমন্বিতভাবে ব্যাবহার করেন। PHP কোডিং এর ক্ষেত্রে একটি সাধারণ কোড স্টাইল মেনে চলা (যতটুকু সম্ভব) খুবই গুরুত্বপূর্ণ যেন ডেভেলপারেরা তাদের প্রজেক্ট এর জন্য সহজেই বিভিন্ন লাইব্রেরি একত্রিত করে ও তাদের সমন্বয় করে কাজ করতে পারেন।
 
-The [Framework Interop Group][fig] has proposed and approved a series of style recommendations. Not all of them related
-to code-style, but those that do are [PSR-0][psr0], [PSR-1][psr1], [PSR-2][psr2] and [PSR-4][psr4]. These
-recommendations are merely a set of rules that many projects like Drupal, Zend, Symfony, Laravel, CakePHP, phpBB, AWS SDK,
-FuelPHP, Lithium, etc are adopting. You can use them for your own projects, or continue to use your own
-personal style.
+[Framework Interop Group][fig] এর দ্বারা প্রস্তাবিত এবং অনুমোদিত কিছু নীতিমালা আছে। এর সবগুলোই কোড স্টাইল সম্পর্কিত নয়, যেগুলো এ সম্পর্কিত সেগুলো হল [PSR-0][psr0], [PSR-1][psr1], [PSR-2][psr2] এবং [PSR-4][psr4]। এই নীতিমালাগুলো কেবল কিছু নিয়মের সমন্বয় যেগুলো Drupal, Zend, Symfony, Laravel, CakePHP, phpBB, AWS SDK, FuelPHP, Lithium ইত্যাদি প্রজেক্টও মেনে চলে। যে কেউ ইচ্ছা করলে তার প্রজেক্টে এই নিয়মগুলোও মেনে চলতে পারে অথবা তার নিজস্ব স্টাইলও মেনে চলতে পারে।
 
-Ideally, you should write PHP code that adheres to a known standard. This could be any combination of PSRs, or one
-of the coding standards made by PEAR or Zend. This means other developers can easily read and work with your code, and
-applications that implement the components can have consistency even when working with lots of third-party code.
+কোন একটি প্রচলিত নিয়ম অনুসরণ করে পিএইচপি কোড লিখা উচিৎ। তা হতে পারে কতগুলো PSR এর সমন্বয় অথবা PEAR বা Zend এর তৈরিকৃত কোন মানদণ্ড। অর্থাৎ অন্যান্য ডেভেলপারেরা যেন সহজেই আপনার কোড পড়তে পারে ও এটি নিয়ে কাজ করতে পারে এবং যেসব অ্যাপ্লিকেশন্স কম্পোনেন্টগুলোকে ইমপ্লিমেন্ট করে তাদের মাঝেও যেন সামঞ্জস্যতা থাকে এমনকি যখন অসংখ্য থার্ড-পার্টি কোড নিয়ে কাজ করা হয়।
 
-* [Read about PSR-0][psr0]
-* [Read about PSR-1][psr1]
-* [Read about PSR-2][psr2]
-* [Read about PSR-4][psr4]
-* [Read about PEAR Coding Standards][pear-cs]
-* [Read about Symfony Coding Standards][symfony-cs]
+* [PSR-0 সম্বন্ধে জানুন][psr0]
+* [PSR-1 সম্বন্ধে জানুন][psr1]
+* [PSR-2 সম্বন্ধে জানুন][psr2]
+* [PSR-4 সম্বন্ধে জানুন][psr4]
+* [PEAR কোডিং স্ট্যান্ডার্ডস সম্বন্ধে জানুন][pear-cs]
+* [Symfony কোডিং স্ট্যান্ডার্ডস সম্বন্ধে জানুন][symfony-cs]
 
-You can use [PHP_CodeSniffer][phpcs] to check code against any one of these recommendations, and plugins for text
-editors like [Sublime Text][st-cs] to be given real-time feedback.
+উপরোক্ত নিয়মগুলোর বিপরীতে কোড চেক করার জন্য [PHP_CodeSniffer][phpcs] ব্যবহার করা যেতে পারে এবং বিভিন্ন টেক্সট এডিটর, যেমন [Sublime Text][st-cs] এর প্লাগইনস ব্যবহার করা যেতে পারে যেটি রিয়েল-টাইম ফিডব্যাক প্রদর্শন করে।
 
-You can fix the code layout automatically by using one of the following tools:
+নিচের যেকোন একটি টুলস ব্যবহার করে স্বয়ংক্রিয়ভাবে কোড লেআউট ঠিক করা যায়ঃ
 
-- One is the [PHP Coding Standards Fixer][phpcsfixer] which has a very well tested codebase.
-- Also, the [PHP Code Beautifier and Fixer][phpcbf] tool which is included with PHP_CodeSniffer can be used to adjust your code accordingly.
+- একটি হল [PHP Coding Standards Fixer][phpcsfixer] যার কোডবেস খুব ভালোভাবে Tested ।
+- এছাড়াও আছে [PHP Code Beautifier and Fixer][phpcbf] যেটি PHP_CodeSniffer এর সাথেই দেয়া থাকে। এর সাহায্যে কোডকে নিজের পছন্দমত স্টাইল এ সাজানো যায়।
 
-And you can run phpcs manually from shell:
+এছাড়াও shell থেকে ম্যানুয়ালি phpcs রান করা যেতে পারেঃ
 
     phpcs -sw --standard=PSR2 file.php
 
-It will show errors and describe how to fix them.
-It can also be helpful to include this command in a git hook.
-That way, branches which contain violations against the chosen standard cannot enter the repository until those
-violations have been fixed.
+এটি এররগুলো দেখাবে এবং কিভাবে সেগুলো ঠিক করা যায় তা বিস্তারিতভাবে প্রদর্শন করবে। এটি আরও সহায়ক হতে পারে যদি এই কমান্ড একটি git hook এর মধ্যে অন্তর্ভুক্ত করা হয়। এই পদ্ধতিতে, যেসকল branch এ নির্ধারিত নিয়ম লঙ্ঘন করা হয়েছে সেগুলো ঠিক করার আগে রিপোজিটরিতে প্রবেশ করতে পারবে না।
 
-If you have PHP_CodeSniffer, then you can fix the code layout problems reported by it, automatically, with the
-[PHP Code Beautifier and Fixer][phpcbf].
+যদি আপনি PHP_CodeSniffer ব্যবহার করেন, তাহলে এর রিপোর্টকৃত কোড লেআউটের সমস্যাগুলো [PHP Code Beautifier and Fixer][phpcbf] দিয়ে স্বয়ংক্রিয়ভাবে ঠিক করতে পারবেন।
 
     phpcbf -w --standard=PSR2 file.php
 
-Another option is to use the [PHP Coding Standards Fixer][phpcsfixer].
-It will show which kind of errors the code structure had before it fixed them.
+আরেকটি বিকল্প পদ্ধতি হল [PHP Coding Standards Fixer][phpcsfixer] ব্যবহার করা। এটি কোড স্ট্রাকচার ঠিক করার আগে তাতে কি কি সমস্যা ছিল সেগুলো দেখাবে।
 
     php-cs-fixer fix -v --level=psr2 file.php
 
-English is preferred for all symbol names and code infrastructure. Comments may be written in any language easily
-readable by all current and future parties who may be working on the codebase.
+সকল ধরণের symbol এর নাম এবং কোডের অবকাঠামোর জন্য ইংরেজিকেই প্রাধান্য দেয়া হয়। কমেন্টস যেকোন ভাষায় লেখা যেতে পারে, যে ভাষা কোডবেস নিয়ে যারা কাজ করছে এবং ভবিষ্যতে যারা কাজ করতে পারে সকলের কাছে সহজে বোধগম্য হয়।
 
 
 [fig]: http://www.php-fig.org/
