@@ -4,19 +4,20 @@ title:  Design Patterns
 sitemap: true
 ---
 
-# Design Patterns
+# ডিজাইন প্যাটার্ন
 
-There are numerous ways to structure the code and project for your web application, and you can put as much or as little thought as you like into architecting. But it is usually a good idea to follow common patterns because it will
-make your code easier to manage and easier for others to understand.
+আপনার ওয়েব অ্যাপ্লিকেশনের জন্য কোড এবং প্রজেক্ট স্ট্রাকচার করার অনেক উপায় রয়েছে, এবং সেক্ষেত্রে আপনি অনেক বা সামান্য চিন্তাধারা আর্কিটেকচার ঠিক করতে
+ব্যবহার করতে পারেন। কিন্তু এটি সাধারণত একটি ভাল ধারণা যে সাধারণ প্যাটার্ন অনুসরণ করা, কারণ এটা আপনার কোডকে সহজে ম্যানেজ করতে এবং অন্যদের 
+সহজে বুঝতে সহায়তা করবে।  
 
-* [Architectural pattern on Wikipedia](https://en.wikipedia.org/wiki/Architectural_pattern)
-* [Software design pattern on Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
-* [Collection of implementation examples](http://designpatternsphp.readthedocs.io/en/latest/)
+* [উইকিপিডিয়াতে আর্কিটেকচারাল প্যাটার্ন](https://en.wikipedia.org/wiki/Architectural_pattern)
+* [উইকিপিডিয়াতে সফটওয়্যার ডিজাইন প্যাটার্ন](https://en.wikipedia.org/wiki/Software_design_pattern)
+* [কিছু ইম্প্লিমেন্টেশানের উদাহরণ](http://designpatternsphp.readthedocs.io/en/latest/)
 
-## Factory
+## ফ্যাক্টরি প্যাটার্ন
 
-One of the most commonly used design patterns is the factory pattern. In this pattern, a class simply creates the
-object you want to use. Consider the following example of the factory pattern:
+সবচেয়ে সাধারণ ব্যবহৃত ডিজাইন প্যাটার্নগুলির একটি হচ্ছে ফ্যাক্টরি প্যাটার্ন। এই প্যাটার্নে একটি ক্লাস কেবল যে অবজেক্ট আপনি ব্যবহার করতে চান তা তৈরি করে।
+ফ্যাক্টরি প্যাটার্নের নিম্নলিখিত উদাহরণ বিবেচনা করুন:
 
 {% highlight php %}
 <?php
@@ -51,58 +52,54 @@ $veyron = AutomobileFactory::create('Bugatti', 'Veyron');
 print_r($veyron->getMakeAndModel()); // outputs "Bugatti Veyron"
 {% endhighlight %}
 
-This code uses a factory to create the Automobile object. There are two possible benefits to building your code this
-way; the first is that if you need to change, rename, or replace the Automobile class later on you can do so and you
-will only have to modify the code in the factory, instead of every place in your project that uses the Automobile class.
-The second possible benefit is that if creating the object is a complicated job you can do all of the work in the
-factory, instead of repeating it every time you want to create a new instance.
+এই কোডটি অটোমোবাইল অবজেক্ট  তৈরির জন্য একটি ফ্যাক্টরি ব্যবহার করে। এইভাবে আপনার কোডটি তৈরীর জন্য এই দুটি সম্ভাব্য সুবিধা রয়েছে;
+প্রথমটি হলো পরবর্তীতে যদি কখনো আপনি অটোমোবাইল ক্লাসটি পরিবর্তন, নাম পরিবর্তন অথবা রিপ্লেস করতে চান তাহলে শুধু ফ্যাক্টরি ক্লাসে পরিবর্তন করলেই চলবে, 
+সমস্ত প্রজেক্টের যত জায়গায় অটোমোবাইল ক্লাস ব্যবহার করা হয়েছে সব জায়গায় পরিবর্তনের পরিবর্তে। দ্বিতীয় সম্ভাব্য সুবিধা হল যে যদি অবজেক্ট তৈরি করা একটি 
+জটিল কাজ হয় তাহলে আপনি সব কাজ করতে পারেন এই ফ্যাক্টরি ক্লাসে, প্রতিবার অবজেক্ট তৈরী করার সময়ে করার পরিবর্তে।  
 
-Using the factory pattern isn't always necessary (or wise). The example code used here is so simple that a factory
-would simply be adding unneeded complexity. However if you are making a fairly large or complex project you may save
-yourself a lot of trouble down the road by using factories.
+ফ্যাক্টরি প্যাটার্ন ব্যবহার করা সবসময় (বা বুদ্ধিমান) প্রয়োজন নাও হতে পারে। এখানে ব্যবহৃত উদাহরণ কোড এত সহজ যে ফ্যাক্টরি ক্লাস এখানে সহজেই অপ্রয়োজনীও 
+জটিলতা যোগ করবে। যাইহোক, যদি আপনি একটি বেশ বড় বা জটিল প্রজেক্টে কাজ করেন তাহলে ফ্যাক্টরি ক্লাসের ব্যবহার হয়তো আপনার ভবিষৎ অনেক সমস্যা কমিয়ে দিবে।
 
-* [Factory pattern on Wikipedia](https://en.wikipedia.org/wiki/Factory_pattern)
 
-## Singleton
+* [ফ্যাক্টরি প্যাটার্ন উইকিপিডিয়াতে](https://en.wikipedia.org/wiki/Factory_pattern)
 
-When designing web applications, it often makes sense conceptually and architecturally to allow access to one and only
-one instance of a particular class. The singleton pattern enables us to do this.
+## সিঙ্গেলটন প্যাটার্ন
 
-**TODO: NEED NEW SINGLETON CODE EXAMPLE**
+যখন ওয়েব অ্যাপ্লিকেশন ডিজাইন করা হয় তখন প্রায়ই ধারনাগত এবং স্থাপত্যগতভাবে একটি নির্দিষ্ট ক্লাসের এক এবং শুধুমাত্র একটি ইন্সটান্স আক্সেস করার প্রয়োজন 
+হতে পারে। সিঙ্গেলটন প্যাটার্ন আমাদের এটা করতে সহায়তা করে।
 
-The code above implements the singleton pattern using a [*static* variable](http://php.net/language.variables.scope#language.variables.scope.static) and the static creation method `getInstance()`.
-Note the following:
+**যা করতে হবে : নতুন সিঙ্গেলটন কোড উদাহরণ প্রয়োজন **
 
-* The constructor [`__construct()`](http://php.net/language.oop5.decon#object.construct) is declared as protected to
-prevent creating a new instance outside of the class via the `new` operator.
-* The magic method [`__clone()`](http://php.net/language.oop5.cloning#object.clone) is declared as private to prevent
-cloning of an instance of the class via the [`clone`](http://php.net/language.oop5.cloning) operator.
-* The magic method [`__wakeup()`](http://php.net/language.oop5.magic#object.wakeup) is declared as private to prevent
-unserializing of an instance of the class via the global function [`unserialize()`](http://php.net/function.unserialize)
-.
-* A new instance is created via [late static binding](http://php.net/language.oop5.late-static-bindings) in the static
-creation method `getInstance()` with the keyword `static`. This allows the subclassing of the class `Singleton` in the
-example.
+উপরের কোডটি স্ট্যাটিক ভেরিয়েবল এবং [*স্ট্যাটিক*](http://php.net/language.variables.scope#language.variables.scope.static) নির্মাণ 
+পদ্ধতি `getInstance ()` ব্যবহার করে সিঙ্গেলটন প্যাটার্ন ইমপ্লিমেন্ট করে।
+নিম্নলিখিত নোট দ্রষ্টব্য:
 
-The singleton pattern is useful when we need to make sure we only have a single instance of a class for the entire
-request lifecycle in a web application. This typically occurs when we have global objects (such as a Configuration
-class) or a shared resource (such as an event queue).
+* কন্সট্রাকটর [`__construct()`](http://php.net/language.oop5.decon#object.construct) কে প্রটেক্টেড হিসাবে ডিক্লেয়ার করা হয় যাতে `new` 
+অপারেটর দ্বারা ক্লাসের বাইরে থেকে কোন নতুন ইন্সটান্স তৈরী করা না যায়।
+* ম্যাজিক মেথড [`__clone()`](http://php.net/language.oop5.cloning#object.clone) কে প্রাইভেট হিসাবে ডিক্লেয়ার করা হয় যাতে ক্লাসের 
+ইন্সটান্স কে [`clone`](http://php.net/language.oop5.cloning) অপারেটর দ্বারা ক্লোন করা না যায়। 
+* ম্যাজিক মেথড [`__wakeup()`](http://php.net/language.oop5.magic#object.wakeup) কে প্রাইভেট হিসাবে ডিক্লেয়ার করা হয় যাতে ক্লাসের 
+ইন্সটান্স কে গ্লোবাল ফ্যাংশান [`unserialize()`](http://php.net/function.unserialize) দ্বারা আনসিরিয়ালাইজিং করা না যায়। 
+* নতুন ইন্সট্যান্স [লেট্ স্ট্যাটিক বাইন্ডিং ](http://php.net/language.oop5.late-static-bindings) দ্বারা স্ট্যাটিক তৈরীর মেথড `getInstance()`
+`static` শব্দ দ্বারা। এটা `Singleton` ক্লাসের 
 
-You should be wary when using the singleton pattern, as by its very nature it introduces global state into your
-application, reducing testability. In most cases, dependency injection can (and should) be used in place of a singleton
-class. Using dependency injection means that we do not introduce unnecessary coupling into the design of our
-application, as the object using the shared or global resource requires no knowledge of a concretely defined class.
+সিঙ্গেলটন প্যাটার্নটি দরকারি যখন আমরা নিশ্চিত করতে চাই যে একটি ওয়েব অ্যাপ্লিকেশনের সমগ্র রিকুয়েস্ট জীবনচক্রে কেবলমাত্র একটি ক্লাসের একটি ইন্সট্যান্স থাকবে। 
+এটি সাধারণত ঘটে যখন আমাদের গ্লোবাল অবজেক্ট (যেমন একটি কনফিগারেশন ক্লাস) বা একটি শেয়ার্ড রিসোর্স (যেমন একটি ইভেন্ট কিউ হিসাবে) থাকে।
 
-* [Singleton pattern on Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
+আপনার সতর্ক থাকতে হবে সিঙ্গেলটন প্যাটার্ন ব্যবহার করার সময় এটার প্রকৃতির জন্য যেহেতু এটা আপনার অ্যাপ্লিকেশনের গ্লোবাল স্টেট কে প্রবর্তন করবে, 
+এবং টেস্ট করার ক্ষমতা কমাবে। অধিকাংশ ক্ষেত্রে ডিপেন্ডেন্সি ইঞ্জেকশন সিঙ্গেলটন ক্লাসের জায়গায় ব্যবহার করা যায় (এবং উচিত)। ডিপেন্ডেন্সি ইঞ্জেকশন ব্যবহার করার
+মানে আমরা আমাদের অ্যাপ্লিকেশনের ডিজাইনের অপ্রয়োজনীও ক্যাপলিং ইন্ট্র্রুডিউস করবো না, যেমন ভাবে শেয়ার্ড এবং গ্লোবাল অবজেক্ট ব্যবহার করার ক্ষেত্রে সুনির্দিষ্ট বা
+নিখুঁত ভাবে ডিফাইন্ড করা ক্লাসের সম্বন্ধে কোন জ্ঞান লাগে না।
 
-## Strategy
+* [উইকিপিডিয়াতে সিঙ্গেলটন প্যাটার্ন](https://en.wikipedia.org/wiki/Singleton_pattern)
 
-With the strategy pattern you encapsulate specific families of algorithms allowing the client class responsible for
-instantiating a particular algorithm to have no knowledge of the actual implementation. There are several variations on
-the strategy pattern, the simplest of which is outlined below:
+## স্ট্রাটেজি প্যাটার্ন 
 
-This first code snippet outlines a family of algorithms; you may want a serialized array, some JSON or maybe just an
-array of data:
+স্ট্রাটেজি প্যাটার্নের দ্বারা আপনি নির্দিষ্ট কিছু এলগরিদমকে এনক্যাপ্সুলেট করতে পারেন, যা ক্লায়েন্ট ক্লাস কোন বিশেষ এলগরিদমের বাস্তবায়ন সম্বন্ধে কোন কিছু 
+না জেনেই এলগোরিদমকে ইন্সট্যান্সিয়েট করার জন্য রিস্পন্সিবল। স্ট্রাটেজি প্যাটার্নের বিভিন্ন বৈচিত্র আছে, যার সবচেয়ে সহজলভ্যতা নিচে দেওয়া হয়েছে:
+
+এই প্রথম কোড স্নিপেট অ্যালগরিদমের একটি ফ্যামিলি রূপরেখা; আপনি হয়তো একটি সিরিয়ালাইজড অ্যারে, কিছু JSON বা হয়তো শুধু একটি ড্যাটার অ্যারে চাইতে 
+পারেন:
 
 {% highlight php %}
 <?php
@@ -137,16 +134,16 @@ class ArrayOutput implements OutputInterface
 }
 {% endhighlight %}
 
-By encapsulating the above algorithms you are making it nice and clear in your code that other developers can easily
-add new output types without affecting the client code.
+উপরের অ্যালগোরিদমগুলি এন্ক্যাপ্সুলেট করার দ্বারা আপনি আপনার কোডকে সুন্দর এবং স্পষ্ট করে তুলছেন, যাতে অন্যান্য ডেভেলপাররা সহজেই ক্লায়েন্ট কোডকে
+প্রভাবিত না করে নতুন আউটপুট টাইপ যোগ করতে পারবে।
 
-You will see how each concrete 'output' class implements an OutputInterface - this serves two purposes, primarily it
-provides a simple contract which must be obeyed by any new concrete implementations. Secondly by implementing a common
-interface you will see in the next section that you can now utilise [Type Hinting](http://php.net/language.oop5.typehinting) to ensure that the client which is utilising these behaviours is of the correct type in
-this case 'OutputInterface'.
+আপনি দেখতে পাবেন কিভাবে প্রতিটি কংক্রিট 'output' ক্লাস একটি OutputInterface কে ইমপ্লিমেন্ট করেছে - এটি দুটি উদ্দেশ্যে সাধন করে, 
+প্রথমত এটি একটি সহজ কন্টাক্ট প্রদান করে যে, কোনও নতুন কংক্রিটের ইমপ্লিমেন্টেশন সেটা মেনে চলতে হবে। দ্বিতীয়ত একটি কমন  ইন্টারফেস ইমপ্লেমেন্টেশন 
+দ্বারা আপনি [টাইপ হিন্টিং](http://php.net/language.oop5.typehinting) ব্যবহার করতে পারবেন যেটা পরবর্তী অধ্যায়ে দেখতে পারবেন। 
+আর এটা নিশ্চিত করে যে ক্লায়েন্ট 'OutputInterface' এর ক্ষেত্রে সঠিক টাইপের বিহেভিয়র ব্যবহার করে। 
 
-The next snippet of code outlines how a calling client class might use one of these algorithms and even better set the
-behaviour required at runtime:
+কোড আউটলাইন পরবর্তী স্নিপেটে আমরা দেখবো কিভাবে ক্লায়েন্ট ক্লাস ঐ অ্যালগরিদমের মধ্যে একটি কে ব্যবহার করতে পারে এবং কিভাবে আরও ভালো ভাবে 
+রানটাইমে বিহেভিয়ার সেট করতে পারে:
 
 {% highlight php %}
 <?php
@@ -166,9 +163,8 @@ class SomeClient
 }
 {% endhighlight %}
 
-The calling client class above has a private property which must be set at runtime and be of type 'OutputInterface'
-once this property is set a call to loadOutput() will call the load() method in the concrete class of the output type
-that has been set.
+উপরের ক্লায়েন্ট ক্লাসের একটি ব্যক্তিগত প্রোপার্টি আছে যেটা অবশ্যই রানটাইমে সেট করতে হবে এবং সেটা 'OutputInterface' এর টাইপ হতে হবে। 
+যখন এই প্রোপার্টি সেট হয়ে যাবে, তখন loadOutput() ফ্যাংশান যেই আউটপুট টাইপ কংক্রিট ক্লাসকে সেট করা হয়ে ছিল সেই ক্লাসের  load() মেথড কে কল করবে। 
 
 {% highlight php %}
 <?php
@@ -184,29 +180,27 @@ $data = $client->loadOutput();
 
 {% endhighlight %}
 
-* [Strategy pattern on Wikipedia](http://en.wikipedia.org/wiki/Strategy_pattern)
+* [স্ট্রাটেজি প্যাটার্ন উইকিপিডিয়াতে](http://en.wikipedia.org/wiki/Strategy_pattern)
 
-## Front Controller
+## ফ্রন্ট কন্ট্রোলার
 
-The front controller pattern is where you have a single entrance point for your web application (e.g. index.php) that
-handles all of the requests. This code is responsible for loading all of the dependencies, processing the request and
-sending the response to the browser. The front controller pattern can be beneficial because it encourages modular code
-and gives you a central place to hook in code that should be run for every request (such as input sanitization).
+ফ্রন্ট কন্ট্রোলার প্যাটার্ন হল যেখানে আপনার ওয়েব অ্যাপ্লিকেশনের (e.g. index.php) জন্য আপনার একক এন্ট্রি পয়েন্ট আছে যেটা সব রিকুয়েষ্ট হ্যান্ডেল করে। 
+এই কোড সমস্ত ডিপেন্ডেনসি লোড করা, রিকুয়েষ্ট প্রক্রিয়াজাত করা এবং ব্রাউজারে রেসপন্স পাঠানোর জন্য দায়ী। ফ্রন্ট কন্ট্রোলার প্যাটার্ন উপকারী হতে পারে কারণ 
+এটা মডুলার কোড করা কে উৎসাহ দেয় এবং আপনাকে কোডে হুক রাখার একটি কেন্দ্রীয় স্থান দেয় যা প্রতিটি রিকুয়েষ্টের জন্য চালানো উচিত (যেমন ইনপুট সানিটাইজেশান)।
 
-* [Front Controller pattern on Wikipedia](https://en.wikipedia.org/wiki/Front_Controller_pattern)
+* [উইকিপিডিয়াতে ফ্রন্ট কন্ট্রোলার প্যাটার্ন](https://en.wikipedia.org/wiki/Front_Controller_pattern)
 
-## Model-View-Controller
+## মডেল-ভিউ-কন্ট্রোলার প্যাটার্ন
 
-The model-view-controller (MVC) pattern and its relatives HMVC and MVVM lets you break up code into logical objects
-that serve very specific purposes. Models serve as a data access layer where data is fetched and returned in formats
-usable throughout your application. Controllers handle the request, process the data returned from models and load
-views to send in the response. And views are display templates (markup, xml, etc) that are sent in the response to the
-web browser.
+মডেল-ভিউ-কন্ট্রোলার (এমভিসি) প্যাটার্ন এবং এর সতীর্থ এইচএমভিসি এবং এমভিভিএম আপনাকে লজিক্যাল অবজেক্টের মধ্যে কোড আলাদা করতে দেয় যা খুব নির্দিষ্ট উদ্দেশ্যে 
+পরিবেশন করে। মডেল ডেটা অ্যাক্সেস লেয়ার হিসাবে কাজ করে যেখানে ডেটা লোড করা হয় এবং আপনার অ্যাপ্লিকেশন জুড়ে ব্যবহারযোগ্য ফরম্যাটে ফিরে দেয়। 
+কন্ট্রোলার রিকুয়েষ্ট হ্যান্ডেল করে, মডেল থেকে পাওয়া ডাটা প্রক্রিয়া করে এবং ভিউস লোড করে সেখানে ডাটা পাঠিয়ে দেয়। এবং ভিউগুলো টেম্পলেট 
+(মার্কআপ, এক্সএমএল ইত্যাদি) গুলোকে প্রদর্শন করে যেগুলো রেসপন্স আকারে  ওয়েব ব্রাউজারে পাঠানো হয়। 
 
-MVC is the most common architectural pattern used in the popular [PHP frameworks](https://github.com/codeguy/php-the-right-way/wiki/Frameworks).
+এমভিসি জনপ্রিয় [পিএইচপি ফ্রেমওয়ারর্কে](https://github.com/codeguy/php-the-right-way/wiki/Frameworks) ব্যবহৃত সবচেয়ে কমন আর্কিটেকচ্যারাল প্যাটার্ন
 
-Learn more about MVC and its relatives:
+এমভিসি এবং তার আত্মীয় সম্পর্কে আরও জানুন:
 
-* [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller)
-* [HMVC](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
-* [MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel)
+* [এমভিসি](https://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller)
+* [এইচএমভিসি](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
+* [এমভিভিএম](https://en.wikipedia.org/wiki/Model_View_ViewModel)
