@@ -4,15 +4,12 @@ isChild: true
 anchor:  date_and_time
 ---
 
-## Date and Time {#date_and_time_title}
+## ডেট এন্ড টাইম {#date_and_time_title}
 
-PHP has a class named DateTime to help you when reading, writing, comparing or calculating with date and time. There
-are many date and time related functions in PHP besides DateTime, but it provides nice object-oriented interface to
-most common uses. It can handle time zones, but that is outside this short introduction.
+ পিএইচপি তে "DateTime" নামে একটি ক্লাস আছে যা আপনাকে ইনপুট, আউটপুট এবং তুলনা করা এই ধরণের বিভিন্ন কাজে সাহায্য করবে| "DateTime" ক্লাস এর মধ্যে ডেট এবং টাইম সম্পর্কিত অনেক ফাংশন রয়েছে| কিন্তু সাধারণ ব্যবহারের ক্ষেত্রে এটি ভালো মানের অবজেক্ট ওরিয়েন্টেড ইন্টারফেস প্রদান করে| এই ক্লাস টাইমজোন নিয়ে ও কাজ করতে পারে| কিন্তু সংক্ষিপ্ত ভূমিকায় তা উল্লেখ করা হলো না|
 
-To start working with DateTime, convert raw date and time string to an object with `createFromFormat()` factory method
-or do `new DateTime` to get the current date and time. Use `format()` method to convert DateTime back to a string for
-output.
+DateTime নিয়ে কাজ করার শুরুতে মূল ডেট এবং টাইম স্ট্রিং কে `createFromFormat()` ফ্যাক্টরি মেথড দিয়ে একটি অবজেক্ট এ রূপান্তর করতে হয়
+অথবা new DateTime এর অবজেক্ট ব্যবহার করে কারেন্ট ডেট টাইম পাওয়া যায় এবং `format()` মেথড ব্যবহার করে পুনরায় এই DateTime কে স্ট্রিং এ রূপান্তর করা যায়|
 
 {% highlight php %}
 <?php
@@ -22,10 +19,7 @@ $start = DateTime::createFromFormat('d. m. Y', $raw);
 echo 'Start date: ' . $start->format('Y-m-d') . "\n";
 {% endhighlight %}
 
-Calculating with DateTime is possible with the DateInterval class. DateTime has methods like `add()` and `sub()` that
-take a DateInterval as an argument. Do not write code that expect same number of seconds in every day, both daylight
-saving and timezone alterations will break that assumption. Use date intervals instead. To calculate date difference
-use the `diff()` method. It will return new DateInterval, which is super easy to display.
+DateTime ক্লাসের সাথে DateInterval ক্লাস ব্যবহার করে ডেট টাইম ক্যালকুলেশন করা যায়| DateTime এ `add()` এবং `sub()` নামে মেথড রয়েছে যা DateInterval এর অবজেক্ট  কে আর্গুমেন্ট হিসেবে গ্রহণ করে| ডেলাইট সেভিং এবং টাইমজোন ভিন্নতার কারনে দিনের সময়কে সমান সংখ্যক সেকেন্ড ধরে কোড লিখা ঠিক নয়| এক্ষেত্রে ডেট ইন্টারবালস ব্যবহার করতে হবে| ডেট এর পার্থক্য নির্নয়ে `diff()` ব্যবহৃত হয়| এটা DateInterval অবজেক্ট রিটার্ন করে যা সহজে ব্যবহার করা যায়|
 
 {% highlight php %}
 <?php
@@ -38,7 +32,7 @@ echo 'Difference: ' . $diff->format('%m month, %d days (total: %a days)') . "\n"
 // Difference: 1 month, 6 days (total: 37 days)
 {% endhighlight %}
 
-On DateTime objects you can use standard comparison:
+DateTime অবজেক্ট উপর আপনি গুণগত মানের তুলনা করতে পারেন:
 
 {% highlight php %}
 <?php
@@ -47,8 +41,7 @@ if ($start < $end) {
 }
 {% endhighlight %}
 
-One last example to demonstrate the DatePeriod class. It is used to iterate over recurring events. It can take two
-DateTime objects, start and end, and the interval for which it will return all events in between.
+ শেষ উদাহরন টি DatePeriod ক্লাস কে বর্ননা করে| এটি পুনরাবৃত্ত ইভেন্টগুলি পুনরাবৃত্তির জন্য ব্যবহার করা হয়| এটি DateTime স্টার্ট এবং এন্ড্ দুইটি অবজেক্ট এবং তাদের মধ্যেকার ব্যবধান গ্রহন করে ও তাদের মধ্যেকার সবগুলো ইভেন্ট রিটার্ন করে|
 
 {% highlight php %}
 <?php
@@ -61,10 +54,10 @@ foreach ($periodIterator as $date) {
 }
 {% endhighlight %}
 
-A popular PHP API extension is [Carbon](http://carbon.nesbot.com). It inherits everything in the DateTime class, so involves minimal code alterations, but extra features include Localization support, further ways to add, subtract and format a DateTime object, plus a means to test your code by simulating a date and time of your choosing.
+PHP এর একটি জনপ্রিয় API এক্সটেনশন হলো [কার্বন](http://carbon.nesbot.com)| এটি DateTime ক্লাস এর সকল বৈশিষ্ট ধারন করে, তাই এতে কোড এর পরিবর্তন কম, কিন্তু এতে কিছু অতিরিক্ত বৈশিষ্ট অন্তর্ভুক্ত  আছে লোকালাইজেশন সাপোর্ট, পুনরায় যোগ করার উপায়, বিয়োগ করা এবং DateTime অবজেক্ট কে ফরমেট করা এবং আপনার পছন্দসই একটি তারিখ এবং সময় অনুকরণ করে আপনার কোড পরীক্ষা করার উপায়|
 
-* [Read about DateTime][datetime]
-* [Read about date formatting][dateformat] (accepted date format string options)
+ * [DateTime সম্পর্কে পড়ুন ][ডেটটাইম ]
+ * [ডেট ফরমেটিং সম্পর্কে পড়ুন][ডেটফরমেট] (ডেট এর গ্রহণযোগ্য স্ট্রিং ফরমেট )
 
-[datetime]: http://php.net/book.datetime
-[dateformat]: http://php.net/function.date
+ [ডেটটাইম ]: http://php.net/book.datetime
+ [ডেটফরমেট]: http://php.net/function.date
