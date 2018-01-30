@@ -3,26 +3,26 @@ isChild: true
 anchor:  command_line_interface
 ---
 
-## Command Line Interface {#command_line_interface_title}
+## কমান্ড লাইন ইন্টারফেইস {#command_line_interface_title}
 
-PHP was created to write web applications, but is also useful for scripting command line interface (CLI) programs.
-Command line PHP programs can help automate common tasks like testing, deployment, and application administration.
+যদিও পিএইচপি তৈরি করা হয়েছিল ওয়েব অ্যাপ্লিকেশন ডেভেলপ করার জন্য, কিন্তু এটি কমান্ড লাইন ইন্টারফেইস (CLI) প্রোগ্রাম লেখার জন্যও কার্যকর।
+কমান্ড লাইন পিএইচপি প্রোগ্রাম টেস্টিং, ডিপ্লয়মেন্ট এবং অ্যাপ্লিকেশন এডমিনিস্ট্রেশন এর মত সাধারণ কাজগুলো স্বয়ংক্রিয় করতে সহায়তা করে।
 
-CLI PHP programs are powerful because you can use your app's code directly without having to create and secure a web
-GUI for it. Just be sure **not** to put your CLI PHP scripts in your public web root!
+সিএলআই পিএইচপি প্রোগ্রাম খুবই শক্তিশালী কারণ এর মাধ্যমে আপনি কোন ধরনের web GUI তৈরি করা ও তাকে সিকিউর করা ছাড়াই আপনার অ্যাপ এর কোডকে
+ব্যবহার করতে পারেন। তবে খেয়াল রাখতে হবে যে আপনার সিএলআই পিএইচপি স্ক্রিপ্টগুলো যেন আপনার public web root এ **না** রাখা হয়!
 
-Try running PHP from your command line:
+কমান্ড লাইন থেকে পিএইচপি রান করুনঃ
 
 {% highlight console %}
 > php -i
 {% endhighlight %}
 
-The `-i` option will print your PHP configuration just like the [`phpinfo()`][phpinfo] function.
+`-i` অপশনটি পিএইচপি কনফিগারেশন প্রিন্ট করে দেখাবে যেমনটি [`phpinfo()`][phpinfo] ফাংশন এর মাধ্যমে করা যায়।
 
-The `-a` option provides an interactive shell, similar to ruby's IRB or python's interactive shell. There are a number
-of other useful [command line options][cli-options], too.
+`-a` অপশনের মাধ্যমে ইন্টার‍্যাক্টিভ শেল দেখতে পাওয়া যাবে যা রুবির IRB অথবা পাইথন এর ইন্টার‍্যাক্টিভ শেল এর অনুরূপ। এছাড়াও পিএইচপি তে
+আরও কিছু প্রয়োজনীয় [কমান্ড লাইন অপশন][cli-options] আছে।
 
-Let's write a simple "Hello, $name" CLI program. To try it out, create a file named `hello.php`, as below.
+একটি সাধারণ "Hello, $name" সিএলআই প্রোগ্রাম দিয়ে শুরু করা যাক। এটি নিজে নিজে করে দেখতে চাইলে নিচের মত করে `hello.php` নামে একটি ফাইল তৈরি করুন।
 
 {% highlight php %}
 <?php
@@ -34,14 +34,14 @@ $name = $argv[1];
 echo "Hello, $name\n";
 {% endhighlight %}
 
-PHP sets up two special variables based on the arguments your script is run with. [`$argc`][argc] is an integer
-variable containing the argument *count* and [`$argv`][argv] is an array variable containing each argument's *value*.
-The first argument is always the name of your PHP script file, in this case `hello.php`.
+আপনার স্ক্রিপ্টটি যে আর্গুমেন্ট দিয়ে রান করা হবে তার উপর ভিত্তি করে পিএইচপি দুটি বিশেষ ভেরিয়েবল সেট করে। [`$argc`][argc] হল একটি ইন্টেজার
+ভেরিয়েবল যেখানে আছে আর্গুমেন্ট *count* এবং [`$argv`][argv] হল একটি অ্যারে ভেরিয়েবল যেখানে আছে প্রত্যেকটি আর্গুমেন্ট এর *value*।
+প্রথম আর্গুমেন্টটি সবসময় হয় আপনার পিএইচপি স্ক্রিপ্ট ফাইল এর নামে, এক্ষেত্রে `hello.php`।
 
-The `exit()` expression is used with a non-zero number to let the shell know that the command failed. Commonly used
-exit codes can be found [here][exit-codes].
+`exit()` এক্সপ্রেশনটি একটি অশূন্য সংখ্যার সাথে ব্যবহার করা হয় যাতে করে শেল বুঝতে পারে যে কমান্ড ফেইল করেছে। সাধারণভাবে ব্যবহৃত
+exit কোডগুলো [এখান][exit-codes] থেকে পেতে পারেন।
 
-To run our script, above, from the command line:
+উপরের স্ক্রিপ্টটি কমান্ড লাইন থেকে রান করুনঃ
 
 {% highlight console %}
 > php hello.php
@@ -51,8 +51,8 @@ Hello, world
 {% endhighlight %}
 
 
- * [Learn about running PHP from the command line][php-cli]
- * [Learn about setting up Windows to run PHP from the command line][php-cli-windows]
+ * [কমান্ড লাইন থেকে পিএইচপি রান করা সম্বন্ধে জানুন][php-cli]
+ * [উইন্ডোজ এ কমান্ড লাইন থেকে পিএইচপি রান করতে প্রয়োজনীয় সেট আপ সম্বন্ধে জানুন][php-cli-windows]
 
 
 [phpinfo]: http://php.net/function.phpinfo

@@ -2,4 +2,4 @@
 anchor: language_highlights
 ---
 
-# Language Highlights {#language_highlights_title}
+# ল্যাঙ্গুয়েজ হাইলাইটস {#language_highlights_title}
