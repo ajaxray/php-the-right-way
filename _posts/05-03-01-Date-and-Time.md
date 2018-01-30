@@ -4,15 +4,12 @@ isChild: true
 anchor:  date_and_time
 ---
 
-## Date and Time {#date_and_time_title}
+## তারিখ ও সময় {#date_and_time_title}
 
-PHP has a class named DateTime to help you when reading, writing, comparing or calculating with date and time. There
-are many date and time related functions in PHP besides DateTime, but it provides nice object-oriented interface to
-most common uses. It can handle time zones, but that is outside this short introduction.
+PHP তে DateTime নামে একটি ক্লাস আছে যা আপনাকে তারিখ ও সময় এর ইনপুট, আউটপুট, তুলনা করা অথবা অন্যান্য হিসাব-নিকাশ এর কাজে সাহায্য করবে। যদিও PHP তে DateTime ক্লাস ছাড়াও তারিখ ও সময় সম্পর্কিত অন্যান্য অনেক ফাংশন রয়েছে, কিন্তু বেশিরভাগ সাধারণ ব্যবহারের জন্য এটি চমৎকার অবজেক্ট ওরিয়েন্টেড ইন্টারফেস প্রদান করে। এই ক্লাস টাইম জোন নিয়েও কাজ করতে পারে, তবে এই সংক্ষিপ্ত ভূমিকায় তা নিয়ে আলোচনা করছি না।
 
-To start working with DateTime, convert raw date and time string to an object with `createFromFormat()` factory method
-or do `new DateTime` to get the current date and time. Use `format()` method to convert DateTime back to a string for
-output.
+DateTime নিয়ে কাজ করার শুরুতে তারিখ ও সময়ের টেক্সট স্ট্রিং কে `createFromFormat()` ফ্যাক্টরি মেথড দিয়ে অবজেক্ট এ রূপান্তর করতে পারেন 
+অথবা `new DateTime` ব্যবহার করে বর্তমান তারিখ ও সময় পাওয়া যায়। `format()` মেথড ব্যবহার করে পুনরায় এই DateTime কে স্ট্রিং এ রূপান্তর করা যায়।
 
 {% highlight php %}
 <?php
@@ -22,10 +19,7 @@ $start = DateTime::createFromFormat('d. m. Y', $raw);
 echo 'Start date: ' . $start->format('Y-m-d') . "\n";
 {% endhighlight %}
 
-Calculating with DateTime is possible with the DateInterval class. DateTime has methods like `add()` and `sub()` that
-take a DateInterval as an argument. Do not write code that expect same number of seconds in every day, both daylight
-saving and timezone alterations will break that assumption. Use date intervals instead. To calculate date difference
-use the `diff()` method. It will return new DateInterval, which is super easy to display.
+DateTime ক্লাসের সাথে DateInterval ক্লাস ব্যবহার করে তারিখ ও সময়ের হিসাব-নিকাশ করা যায়। DateTime এ `add()` এবং `sub()` নামে মেথড রয়েছে যা DateInterval এর অবজেক্ট  কে আর্গুমেন্ট হিসেবে গ্রহণ করে। ডেলাইট সেভিং এবং টাইমজোন ভিন্নতার কারনে দিনের সময়কে সমান সংখ্যক সেকেন্ড ধরে কোড লেখা ঠিক নয়। এক্ষেত্রে DateInterval ব্যবহার করতে হবে। তারিখ এর পার্থক্য নির্নয়ে `diff()` ব্যবহৃত হয়। এটা DateInterval অবজেক্ট রিটার্ন করে যা খুব সহজে ব্যবহার করা যায়।
 
 {% highlight php %}
 <?php
@@ -38,7 +32,7 @@ echo 'Difference: ' . $diff->format('%m month, %d days (total: %a days)') . "\n"
 // Difference: 1 month, 6 days (total: 37 days)
 {% endhighlight %}
 
-On DateTime objects you can use standard comparison:
+DateTime অবজেক্ট ব্যবহার করে আপনি সাধারন তুলনা করতে পারেন:
 
 {% highlight php %}
 <?php
@@ -47,8 +41,7 @@ if ($start < $end) {
 }
 {% endhighlight %}
 
-One last example to demonstrate the DatePeriod class. It is used to iterate over recurring events. It can take two
-DateTime objects, start and end, and the interval for which it will return all events in between.
+শেষ উদাহরন টি DatePeriod ক্লাস সম্পর্কে। এটি পুনরাবৃত্ত ইভেন্টগুলি পুনরাবৃত্তির জন্য ব্যবহার করা হয়। এটি DateTime এর দুটি অবজেক্ট নিতে পারে, শুরু এবং শেষ, এবং ইভেন্টগুলির মধ্যবর্তি সময় যার প্রেক্ষিতে এটি তাদের মধ্যকার সবগুলো ইভেন্ট রিটার্ন করে।
 
 {% highlight php %}
 <?php
@@ -61,10 +54,10 @@ foreach ($periodIterator as $date) {
 }
 {% endhighlight %}
 
-A popular PHP API extension is [Carbon](http://carbon.nesbot.com). It inherits everything in the DateTime class, so involves minimal code alterations, but extra features include Localization support, further ways to add, subtract and format a DateTime object, plus a means to test your code by simulating a date and time of your choosing.
+একটি জনপ্রিয় PHP API এক্সটেনশন হলো [Carbon](http://carbon.nesbot.com)। এটি DateTime ক্লাস এর সকল বৈশিষ্ট ধারন করে, তাই এতে কোড এর পরিবর্তন কম, কিন্তু এতে কিছু অতিরিক্ত বৈশিষ্ট অন্তর্ভুক্ত আছে যেমন, স্থানীয় ভাষায় তারিখ ও সময়, ভিন্ন কিছু পদ্ধতিতে DateTime অবজেক্ট কে যোগ, বিয়োগ এবং ফরম্যাট করা, সেই সাথে আপনার পছন্দসই একটি তারিখ এবং সময় অনুকরণ করে আপনার কোড পরীক্ষা করার উপায়।
 
-* [Read about DateTime][datetime]
-* [Read about date formatting][dateformat] (accepted date format string options)
+* [DateTime সম্পর্কে জানুন][datetime]
+* [তারিখ ফরম্যাটিং সম্পর্কে জানুন][dateformat] (তারিখের গ্রহণযোগ্য স্ট্রিং ফরম্যাটসমূহ)
 
 [datetime]: http://php.net/book.datetime
 [dateformat]: http://php.net/function.date
