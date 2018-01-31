@@ -3,15 +3,15 @@ isChild: true
 anchor:  design_patterns
 ---
 
-## Design Patterns {#design_patterns_title}
+## ডিজাইন প্যাটার্ন {#design_patterns_title}
 
-When you are building your application it is helpful to use common patterns in your code and common patterns for the
-overall structure of your project. Using common patterns is helpful because it makes it much easier to manage your code
-and lets other developers quickly understand how everything fits together.
+যখন আপনি আপনার অ্যাপ্লিকেশন তৈরি করছেন তখন এটা দরকারী যে, আপনার কোডে এবং পুরো প্রজেক্টের স্ট্রাকচারেও কিছু সাধারণ প্যাটার্ন ব্যবহার করা। 
+কমন প্যাটার্নগুলি ব্যবহার করা সহায়ক কারণ এটি আপনার কোড পরিচালনা করতে আরও সহজ করে তোলে এবং অন্য ডেভেলপাররাও দ্রুত বুঝতে পারেন 
+কিভাবে সবকিছু একে ওপরের সাথে যুক্ত আছে। 
 
-If you use a framework then most of the higher level code and project structure will be based on that framework, so a
-lot of the pattern decisions are made for you. But it is still up to you to pick out the best patterns to follow in the
-code you build on top of the framework. If, on the other hand, you are not using a framework to build your application
-then you have to find the patterns that best suit the type and size of application that you're building.
+যদি আপনি কোন ফ্রেমওয়ার্ক ব্যবহার করেন তাহলে অধিকাংশ হাইয়ার লেভেল কোড এবং প্রজেক্ট স্ট্রাকচার ঐ ফ্রেমওয়ার্কের উপর নির্ভর করবে। 
+সেখানে অনেক প্যাটার্ন সিদ্ধান্তই আপনার জন্য করে দেয়া থাকবে। কিন্তু তবুও এটা আপনার সিদ্ধান্ত যে আপনি আপনার কোডে কোন বিশেষ প্যাটার্ন অনুসরণ
+করবেন যা আপনি ঐ ফ্রেমওয়ার্কের উপর তৈরী করবেন। অপরদিকে যদি আপনি আপনার অ্যাপ্লিকেশনে কোন ফ্রেমওয়ার্ক ব্যবহার না করেন, তাহলে আপনাকে 
+আপনার অ্যাপ্লিকেশনের টাইপ এবং সাইজের উপর ভিত্তি করে সবচেয়ে উপযুক্ত প্যাটার্ন খুঁজে নিতে হবে ।
 
-* Continue reading on [Design Patterns](/pages/Design-Patterns.html)
+* বিস্তারিত পড়ুন [ডিজাইন প্যাটার্ন](/pages/Design-Patterns.html)
